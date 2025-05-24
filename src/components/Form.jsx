@@ -104,7 +104,7 @@ const ImageUpload = () => {
           <>
             <Upload size={40} />
             <p>Click to upload an image</p>
-            <small>PNG, JPG, or GIF (max 5MB)</small>
+            <small>PNG, JPG, or JPEG (max 5MB)</small>
           </>
         )}
       </div>
