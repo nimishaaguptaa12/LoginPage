@@ -1,12 +1,38 @@
-# React + Vite
+# 🌟 React User Input Form with Display Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and interactive React form app that allows users to:
 
-Currently, two official plugins are available:
+- Enter their **name and email**
+- Upload an **image**
+- Select an **age group** from a dropdown
+- Choose a **rating** using a slider
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All input data is validated and displayed on the **results page**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- Real-time validation (name, email)
+- Image preview after upload
+- Custom dropdown for age group
+- Rating Slider
+- Final results preview page
+- Styled with CSS
+- Navigation using `react-router-dom`
+
+---
+
+## 📸 Preview
+
+![image](https://github.com/user-attachments/assets/225e5eac-e0c4-47ea-9304-092220af23a8)
+
+
+![image](https://github.com/user-attachments/assets/e32a9050-243c-4342-a99e-44c9ec2a7c59)
+
+
+## 🛠️ Tech Stack
+
+- React
+- React Router DOM
+- HTML & CSS
