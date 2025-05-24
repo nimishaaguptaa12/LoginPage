@@ -8,55 +8,55 @@ const ResultsPage = () => {
   const { formData } = useFormContext();
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Submission Results</h1>
+    <div className="results-container">
+      <h1 className="results-title">Submission Results</h1>
       
       {formData.imagePreview && (
-        <div className="mb-6">
-          <h2 className="text-sm font-medium text-gray-500 mb-2">Uploaded Image</h2>
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <div className="image-section">
+          <h2 className="section-label">Uploaded Image</h2>
+          <div className="image-wrapper">
             <img 
               src={formData.imagePreview} 
               alt="Uploaded" 
-              className="w-full h-auto rounded shadow-sm" 
+              className="uploaded-image" 
             />
           </div>
         </div>
       )}
       
-      <div className="space-y-4">
-        <div>
-          <h2 className="text-sm font-medium text-gray-500 mb-1">Name</h2>
-          <p className="text-gray-900 font-medium">{formData.name}</p>
+      <div className="results-grid">
+        <div className="result-item">
+          <h2 className="result-label">Name</h2>
+          <p className="result-value">{formData.name}</p>
         </div>
         
-        <div>
-          <h2 className="text-sm font-medium text-gray-500 mb-1">Email</h2>
-          <p className="text-gray-900 font-medium">{formData.email}</p>
+        <div className="result-item">
+          <h2 className="result-label">Email</h2>
+          <p className="result-value">{formData.email}</p>
         </div>
         
-        <div>
-          <h2 className="text-sm font-medium text-gray-500 mb-1">Category</h2>
-          <p className="text-gray-900 font-medium">{formData.category}</p>
+        <div className="result-item">
+          <h2 className="result-label">Category</h2>
+          <p className="result-value">{formData.category}</p>
         </div>
         
-        <div>
-          <h2 className="text-sm font-medium text-gray-500 mb-1">Rating</h2>
-          <div className="flex items-center gap-3">
-            <div className="w-full bg-gray-200 rounded-full h-2">
+        <div className="result-item">
+          <h2 className="result-label">Rating</h2>
+          <div className="rating-display">
+            <div className="rating-bar">
               <div 
-                className="bg-blue-600 h-2 rounded-full" 
+                className="rating-progress" 
                 style={{ width: `${formData.rating}%` }}
               ></div>
             </div>
-            <span className="text-blue-600 font-medium">{formData.rating}</span>
+            <span className="rating-value">{formData.rating}</span>
           </div>
         </div>
       </div>
       
       <button
         onClick={() => navigate('/')}
-        className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 mt-6"
+        className="back-button"
       >
         <ArrowLeft size={18} />
         <span>Back to Form</span>

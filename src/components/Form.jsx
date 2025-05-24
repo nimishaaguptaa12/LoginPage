@@ -188,7 +188,7 @@ const FormPage = () => {
 
   return (
     <div className="form">
-      <h1>Profile Information</h1>
+      <h3>Profile Information</h3>
       <form onSubmit={handleSubmit}>
         <FormField
           label="Name"
