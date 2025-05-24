@@ -33,6 +33,6 @@ All input data is validated and displayed on the **results page**.
 
 ## 🛠️ Tech Stack
 
-- React
+- React + Vite
 - React Router DOM
 - HTML & CSS
