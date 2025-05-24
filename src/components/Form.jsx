@@ -3,25 +3,65 @@ import { useNavigate } from 'react-router-dom';
 import { useFormContext } from '../context/FormContext';
 import { ArrowRight, Upload, ChevronDown } from 'lucide-react';
 
-// Basic Input Component
-const FormField = ({ label, id, type = 'text', value, onChange, error, required, placeholder }) => (
-  <div className="form-field">
-    <label htmlFor={id}>
-      {label} {required && <span className="required">*</span>}
-    </label>
-    <input
-      type={type}
-      id={id}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      className={error ? 'input-error' : 'input-normal'}
-    />
-    {error && <p className="error">{error}</p>}
-  </div>
-);
+// Enhanced FormField Component with strict name validation
+const FormField = ({ label, id, type = 'text', value, onChange, error, required, placeholder }) => {
+  const handleChange = (e) => {
+    if (id === 'name') {
+      const inputValue = e.target.value;
+      
+      // Allow empty value for editing but validate on submit
+      if (inputValue === '') {
+        onChange(e);
+        return;
+      }
+      
+      // Only allow alphabets, spaces, hyphens, and apostrophes
+      if (/^[a-zA-Z\s'-]*$/.test(inputValue)) {
+        onChange(e);
+      }
+    } else {
+      onChange(e);
+    }
+  };
 
-// Image Upload Component
+  // Comprehensive name validation
+  const validateName = (name) => {
+    if (!name && required) return "Name is required";
+    if (!name) return null;
+    
+    const nameParts = name.trim().split(/\s+/);
+    
+    if (nameParts.length < 2) return "Please enter both first and last name";
+    if (nameParts.some(part => part.length < 2)) return "Each name part should be at least 2 letters";
+    if (name.length > 50) return "Name is too long (max 50 characters)";
+    if (/[0-9]/.test(name)) return "Numbers are not allowed in names";
+    if (/[^a-zA-Z\s'-]/.test(name)) return "Only letters, spaces, hyphens (-) and apostrophes (') allowed";
+    if (!/^[a-zA-Z]+(?:\s+[a-zA-Z'-]+)+$/.test(name)) return "Please enter a valid full name";
+    
+    return null;
+  };
+
+  const fieldError = id === 'name' ? validateName(value) || error : error;
+
+  return (
+    <div className="form-field">
+      <label htmlFor={id}>
+        {label} {required && <span className="required">*</span>}
+      </label>
+      <input
+        type={type}
+        id={id}
+        value={value}
+        onChange={handleChange}
+        placeholder={placeholder}
+        className={fieldError ? 'input-error' : 'input-normal'}
+      />
+      {fieldError && <p className="error">{fieldError}</p>}
+    </div>
+  );
+};
+
+// Image Upload Component (unchanged)
 const ImageUpload = () => {
   const { formData, updateFormData, formErrors, setError, clearErrors } = useFormContext();
   const fileInput = useRef();
@@ -80,7 +120,7 @@ const ImageUpload = () => {
   );
 };
 
-// Dropdown Component
+// Dropdown Component (unchanged)
 const Dropdown = ({ label, options, value, onChange, error, required }) => {
   const [open, setOpen] = useState(false);
   const dropdown = useRef();
@@ -130,7 +170,7 @@ const Dropdown = ({ label, options, value, onChange, error, required }) => {
   );
 };
 
-// Slider Component
+// Slider Component (unchanged)
 const Slider = ({ label, min, max, value, onChange }) => {
   const [hover, setHover] = useState(false);
   const percent = ((value - min) / (max - min)) * 100;
@@ -170,15 +210,14 @@ const Slider = ({ label, min, max, value, onChange }) => {
   );
 };
 
-// Main Form Component
+// Main Form Component with updated age categories
 const FormPage = () => {
   const navigate = useNavigate();
   const { formData, updateFormData, validateForm, formErrors } = useFormContext();
 
-  const categories = [
-    'Technology', 'Business', 'Education', 
-    'Entertainment', 'Health', 'Sports', 
-    'Travel', 'Other'
+  const ageCategories = [
+    'Under 18', '18-25', '26-35', 
+    '36-45', '46-55', '56-65', '65+'
   ];
 
   const handleSubmit = (e) => {
@@ -191,13 +230,14 @@ const FormPage = () => {
       <h3>Profile Information</h3>
       <form onSubmit={handleSubmit}>
         <FormField
-          label="Name"
+          label="Full Name"
           id="name"
           value={formData.name}
           onChange={(e) => updateFormData({ name: e.target.value })}
           error={formErrors.name}
           required
-          placeholder="Enter your full name"
+          placeholder="Enter your first and last name"
+          style={{ fontStyle: 'italic' }} 
         />
         <FormField
           label="Email"
@@ -208,11 +248,12 @@ const FormPage = () => {
           error={formErrors.email}
           required
           placeholder="Enter your email address"
+          style={{ fontStyle: 'italic' }} 
         />
         <ImageUpload />
         <Dropdown
-          label="Category"
-          options={categories}
+          label="Age Group"
+          options={ageCategories}
           value={formData.category}
           onChange={(value) => updateFormData({ category: value })}
           error={formErrors.category}

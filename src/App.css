@@ -16,15 +16,15 @@
   font-size: 1.25rem;
   font-weight: bold;
   color: #2563eb;
-  margin: 0 auto;
+  margin: 0 ;
   max-width: 1200px;
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .app-main {
   flex: 1;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  margin: 0;
+  padding: 1rem 1rem;
   width: 100%;
   max-width: 1200px;
   display: flex;

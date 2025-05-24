@@ -9,47 +9,51 @@ const ResultsPage = () => {
 
   return (
     <div className="results-container">
-      <h1 className="results-title">Submission Results</h1>
+      <h1 className="results-title">Personal Information</h1>
       
-      {formData.imagePreview && (
-        <div className="image-section">
-          <h2 className="section-label">Uploaded Image</h2>
-          <div className="image-wrapper">
-            <img 
-              src={formData.imagePreview} 
-              alt="Uploaded" 
-              className="uploaded-image" 
-            />
-          </div>
-        </div>
-      )}
-      
-      <div className="results-grid">
-        <div className="result-item">
-          <h2 className="result-label">Name</h2>
-          <p className="result-value">{formData.name}</p>
-        </div>
-        
-        <div className="result-item">
-          <h2 className="result-label">Email</h2>
-          <p className="result-value">{formData.email}</p>
-        </div>
-        
-        <div className="result-item">
-          <h2 className="result-label">Category</h2>
-          <p className="result-value">{formData.category}</p>
-        </div>
-        
-        <div className="result-item">
-          <h2 className="result-label">Rating</h2>
-          <div className="rating-display">
-            <div className="rating-bar">
-              <div 
-                className="rating-progress" 
-                style={{ width: `${formData.rating}%` }}
-              ></div>
+      <div className="results-content">
+        {/* Image on the left side */}
+        {formData.imagePreview && (
+          <div className="image-section">
+            <h2 className="result-label">Uploade Image</h2>
+            <div className="image-wrapper">
+              <img 
+                src={formData.imagePreview} 
+                alt="Uploaded" 
+                className="uploaded-image" 
+              />
             </div>
-            <span className="rating-value">{formData.rating}</span>
+          </div>
+        )}
+
+        {/* Form data on the right side */}
+        <div className="results-data">
+          <div className="result-item">
+            <h2 className="result-label">Name</h2>
+            <p className="result-value">{formData.name}</p>
+          </div>
+          
+          <div className="result-item">
+            <h2 className="result-label">Email</h2>
+            <p className="result-value">{formData.email}</p>
+          </div>
+          
+          <div className="result-item">
+            <h2 className="result-label">Age Group</h2>
+            <p className="result-value">{formData.category}</p>
+          </div>
+          
+          <div className="result-item">
+            <h2 className="result-label">Rating</h2>
+            <div className="rating-display">
+              <div className="rating-bar">
+                <div 
+                  className="rating-progress" 
+                  style={{ width: `${formData.rating}%` }}
+                ></div>
+              </div>
+              <span className="rating-value">{formData.rating}</span>
+            </div>
           </div>
         </div>
       </div>
