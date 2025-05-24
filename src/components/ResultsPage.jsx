@@ -15,7 +15,7 @@ const ResultsPage = () => {
         {/* Image on the left side */}
         {formData.imagePreview && (
           <div className="image-section">
-            <h2 className="result-label">Uploade Image</h2>
+            <h2 className="result-label">Uploaded Image</h2>
             <div className="image-wrapper">
               <img 
                 src={formData.imagePreview} 

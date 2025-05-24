@@ -103,7 +103,7 @@ label {
 }
 
 .upload-area.has-preview img {
-  max-width: 100%;
+  max-width: 80%;
   max-height: 8rem;
   border-radius: calc(var(--border-radius) - 0.25rem);
 }
@@ -262,8 +262,8 @@ button {
 }
 
 .result-image {
-  max-width: 100%;
-  height: auto;
+  max-width: 50%;
+  height: 50%;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   margin-bottom: var(--space-md);
