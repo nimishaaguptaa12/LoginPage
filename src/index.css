@@ -8,6 +8,12 @@ body {
   line-height: 1.5;
 }
 
+.container {
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  max-width: 100%; /* Ensures container doesn't exceed screen width */
+  word-wrap: break-word; /* Breaks long words */
+}
+
 /* Typography */
 h2, h3 {
   font-size: 1.25rem;
