@@ -43,7 +43,7 @@ const FormField = ({ label, id, type = 'text', value, onChange, error, required,
 
   return (
     <div className="mb-5">
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-2">
+      <label htmlFor={id} className="block text-sm font-medium text-black mb-2">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input
@@ -85,7 +85,7 @@ const ImageUpload = () => {
 
   return (
     <div className="mb-5">
-      <label className="block text-sm font-medium text-gray-700 mb-2">
+      <label className="block text-sm font-medium text-black mb-2">
         Upload Image <span className="text-red-500">*</span>
       </label>
       <div
@@ -97,13 +97,13 @@ const ImageUpload = () => {
         {formData.imagePreview ? (
           <>
             <img src={formData.imagePreview} alt="Preview" className="mx-auto h-32 rounded-lg object-cover" />
-            <p className="text-xs text-gray-500 mt-2">Click to change image</p>
+            <p className="text-xs text-black-500 mt-2">Click to change image</p>
           </>
         ) : (
           <>
-            <Upload className="mx-auto text-gray-400 mb-2" size={36} />
-            <p className="text-sm text-gray-500">Click to upload an image</p>
-            <small className="text-gray-400">PNG, JPG or JPEG (max 5MB)</small>
+            <Upload className="mx-auto text-black-400 mb-2" size={36} />
+            <p className="text-sm text-black-500">Click to upload an image</p>
+            <small className="text-black-400">PNG, JPG or JPEG (max 5MB)</small>
           </>
         )}
       </div>
@@ -130,7 +130,7 @@ const Dropdown = ({ label, options, value, onChange, error, required }) => {
 
   return (
     <div className="mb-5 relative" ref={dropdown}>
-      <label className="block text-sm font-medium text-gray-700 mb-2">
+      <label className="block text-sm font-medium text-black mb-2">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <div
@@ -170,7 +170,7 @@ const Slider = ({ label, min, max, value, onChange }) => {
   const percent = ((value - min) / (max - min)) * 100;
   return (
     <div className="mb-6">
-      <label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
+      <label className="block text-sm font-medium text-black mb-2">{label}</label>
       <input
         type="range"
         min={min}
@@ -182,7 +182,7 @@ const Slider = ({ label, min, max, value, onChange }) => {
           background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${percent}%, #e5e7eb ${percent}%, #e5e7eb 100%)`,
         }}
       />
-      <div className="flex justify-between text-xs text-gray-500 mt-1">
+      <div className="flex justify-between text-xs text-gray-900 mt-1">
         <span>{min}</span>
         <span className="font-semibold">{value}</span>
         <span>{max}</span>
@@ -213,22 +213,22 @@ const FormPage = () => {
       }}
     >
       {/* Background overlay with gradient and blur */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70"></div>
       
       {/* Navbar-style header */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-10">
+      <nav className="fixed top-0 left-0 right-0 bg-white/80 shadow-sm z-10">
         <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
           <h1 className="text-xl font-bold text-blue-800">Profile Builder</h1>
           <div className="flex space-x-4">
-            <button className="text-gray-700 hover:text-blue-600 transition">Home</button>
-            <button className="text-gray-700 hover:text-blue-600 transition">About</button>
-            <button className="text-gray-700 hover:text-blue-600 transition">Contact</button>
+            <button className="text-Black-700 hover:text-blue-600 transition">Home</button>
+            <button className="text-Black-700 hover:text-blue-600 transition">About</button>
+            <button className="text-Black-700 hover:text-blue-600 transition">Contact</button>
           </div>
         </div>
       </nav>
 
       {/* Form container */}
-      <div className="w-full max-w-2xl bg-violet/90 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden z-0 relative">
+      <div className="w-full max-w-2xl bg-blue backdrop-blur-md rounded-xl shadow-2xl overflow-hidden z-0 relative">
         {/* Form header with gradient */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-6 text-center">
           <h2 className="text-2xl font-bold text-white">Profile Information</h2>
@@ -239,13 +239,13 @@ const FormPage = () => {
         <div className="p-6 md:p-8">
           <form onSubmit={handleSubmit}>
             <FormField
-              label="Full Name"
+              label="Name"
               id="name"
               value={formData.name}
               onChange={(e) => updateFormData({ name: e.target.value })}
               error={formErrors.name}
               required
-              placeholder="Enter your full name"
+              placeholder="Enter your name"
             />
             
             <FormField

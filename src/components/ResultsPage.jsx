@@ -61,16 +61,16 @@ const ResultsPage = () => {
               
               <div>
                 <h2 className="font-semibold text-gray-600 mb-1">Rating</h2>
-                <p className="text-lg text-gray-800">
+                <p className="text-lg text-gray-800"/>
                   {formData.rating || 0}
               </div>
             </div>
 
-            {/* Image on the right side */}
+
             {formData.imagePreview && (
               <div className="w-full md:w-auto flex flex-col items-center">
                 <h2 className="font-semibold text-gray-600 mb-4">Uploaded Image</h2>
-                <div className="p-1 border-4 border-blue-100 rounded-full bg-balck shadow-md">
+                <div className="p-1 border-4 border-blue-100 rounded-full bg-blue shadow-md">
                   <img
                     src={formData.imagePreview}
                     alt="Uploaded preview"

@@ -10,7 +10,6 @@ function App() {
       <Router>
         <div className="app-container">
           <header className="app-header">
-            <center><h1>Form</h1></center>
           </header>
           
           <main className="app-main">
