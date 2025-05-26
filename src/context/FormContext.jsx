@@ -40,7 +40,7 @@ export const FormProvider = ({ children }) => {
       errors.email = 'Email is required';
       isValid = false;
     } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
       if (!emailRegex.test(formData.email)) {
         errors.email = 'Please enter a valid email address';
         isValid = false;

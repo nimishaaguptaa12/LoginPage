@@ -14,6 +14,9 @@ function App() {
           </header>
           
           <main className="app-main">
+            <div class="bg-[url(/img/mountains.jpg)] ...">
+              <div class="backdrop-blur-xs backdrop-grayscale ..."></div>
+            </div>
             <Routes>
               <Route path="/" element={<FormPage />} />
               <Route path="/results" element={<ResultsPage />} />

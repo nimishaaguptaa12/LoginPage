@@ -1,4 +1,10 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f9fafb;
   color: #1f2937;
@@ -30,7 +36,6 @@ label {
   color: #374151;
 }
 
-/* Inputs */
 input[type="text"],
 input[type="email"],
 input[type="file"],
@@ -66,7 +71,6 @@ input[type="file"]:focus,
   margin-top: 0.25rem;
 }
 
-/* Required star */
 .required {
   color: #ef4444;
 }
@@ -96,7 +100,7 @@ input[type="file"]:focus,
   border-radius: 0.25rem;
 }
 
-/* Dropdown */
+
 .dropdown-wrapper {
   position: relative;
 }
@@ -137,7 +141,7 @@ input[type="file"]:focus,
   background-color: #f3f4f6;
 }
 
-/* Slider */
+
 .slider {
   width: 100%;
 }
@@ -215,7 +219,7 @@ input[type="file"]:focus,
   margin-top: 0.25rem;
 }
 
-/* Buttons */
+
 button {
   height: 2.75rem;
   font-size: 0.875rem;
@@ -243,7 +247,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* Results container */
+
 .results-container {
   max-width: 800px;
   margin: 2rem auto;
@@ -336,7 +340,6 @@ button:focus-visible {
   gap: 1rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .results-content {
     flex-direction: column;
@@ -347,4 +350,4 @@ button:focus-visible {
     padding: 1.5rem;
     margin: 1.5rem 1rem;
   }
-}
+} */
