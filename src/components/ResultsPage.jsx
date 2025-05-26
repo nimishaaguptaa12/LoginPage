@@ -18,22 +18,22 @@ const ResultsPage = () => {
       }}
     >
       {/* Background overlay with gradient and blur */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-purple-900/70"></div>
       
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-sm z-10">
         <div className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
           <h1 className="text-xl font-bold text-blue-800">Profile Builder</h1>
           <div className="flex space-x-4">
-            <button className="text-gray-700 hover:text-blue-600 transition">Home</button>
-            <button className="text-gray-700 hover:text-blue-600 transition">About</button>
-            <button className="text-gray-700 hover:text-blue-600 transition">Contact</button>
+            <button className="text-black-700 hover:text-blue-600 transition">Home</button>
+            <button className="text-black-700 hover:text-blue-600 transition">About</button>
+            <button className="text-black-700 hover:text-blue-600 transition">Contact</button>
           </div>
         </div>
       </nav>
 
       {/* Main content container */}
-      <div className="w-full max-w-4xl bg-white/90 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden z-0 relative mt-12 mb-8">
+      <div className="w-full max-w-4xl bg-blue backdrop-blur-md rounded-xl shadow-2xl overflow-hidden z-0 relative mt-12 mb-8">
         {/* Header with gradient */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-6 text-center">
           <h1 className="text-2xl font-bold text-white">Personal Information</h1>
@@ -45,32 +45,31 @@ const ResultsPage = () => {
             {/* Form data on the left side */}
             <div className="flex-1 w-full space-y-6">
               <div className="pb-4 border-b border-gray-200">
-                <h2 className="font-semibold text-gray-600 mb-1">Name</h2>
-                <p className="text-lg text-gray-800">{formData.name || 'Not provided'}</p>
+                <h2 className="font-semibold text-white mb-1">Name</h2>
+                <p className="text-lg text-white">{formData.name || 'Not provided'}</p>
               </div>
               
               <div className="pb-4 border-b border-gray-200">
-                <h2 className="font-semibold text-gray-600 mb-1">Email</h2>
-                <p className="text-lg text-gray-800">{formData.email || 'Not provided'}</p>
+                <h2 className="font-semibold text-white mb-1">Email</h2>
+                <p className="text-lg text-white">{formData.email || 'Not provided'}</p>
               </div>
               
               <div className="pb-4 border-b border-gray-200">
-                <h2 className="font-semibold text-gray-600 mb-1">Age Group</h2>
-                <p className="text-lg text-gray-800">{formData.category || 'Not selected'}</p>
+                <h2 className="font-semibold text-white mb-1">Age Group</h2>
+                <p className="text-lg text-white">{formData.category || 'Not selected'}</p>
               </div>
               
               <div>
-                <h2 className="font-semibold text-gray-600 mb-1">Rating</h2>
-                <p className="text-lg text-gray-800"/>
-                  {formData.rating || 0}
+                <h2 className="font-semibold text-white mb-1">Rating</h2>
+                <p className="text-lg text-white">{formData.rating || 0}</p>
               </div>
             </div>
 
 
             {formData.imagePreview && (
               <div className="w-full md:w-auto flex flex-col items-center">
-                <h2 className="font-semibold text-gray-600 mb-4">Uploaded Image</h2>
-                <div className="p-1 border-4 border-blue-100 rounded-full bg-blue shadow-md">
+                <h2 className="font-semibold text-white mb-4">Uploaded Image</h2>
+                <div className="p-1 border-4 border-blue-100 rounded-full bg-blue shadow-md padding-5">
                   <img
                     src={formData.imagePreview}
                     alt="Uploaded preview"

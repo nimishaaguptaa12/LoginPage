@@ -43,7 +43,7 @@ const FormField = ({ label, id, type = 'text', value, onChange, error, required,
 
   return (
     <div className="mb-5">
-      <label htmlFor={id} className="block text-sm font-medium text-black mb-2">
+      <label htmlFor={id} className="block text-sm font-medium text-white mb-2">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <input
@@ -85,7 +85,7 @@ const ImageUpload = () => {
 
   return (
     <div className="mb-5">
-      <label className="block text-sm font-medium text-black mb-2">
+      <label className="block text-sm font-medium text-white mb-2">
         Upload Image <span className="text-red-500">*</span>
       </label>
       <div
@@ -101,9 +101,9 @@ const ImageUpload = () => {
           </>
         ) : (
           <>
-            <Upload className="mx-auto text-black-400 mb-2" size={36} />
-            <p className="text-sm text-black-500">Click to upload an image</p>
-            <small className="text-black-400">PNG, JPG or JPEG (max 5MB)</small>
+            <Upload className="mx-auto text-white mb-2" size={36} />
+            <p className="text-sm text-white">Click to upload an image</p>
+            <small className="text-white">PNG, JPG or JPEG (max 5MB)</small>
           </>
         )}
       </div>
@@ -130,7 +130,7 @@ const Dropdown = ({ label, options, value, onChange, error, required }) => {
 
   return (
     <div className="mb-5 relative" ref={dropdown}>
-      <label className="block text-sm font-medium text-black mb-2">
+      <label className="block text-sm font-medium text-white mb-2">
         {label} {required && <span className="text-red-500">*</span>}
       </label>
       <div
@@ -170,7 +170,7 @@ const Slider = ({ label, min, max, value, onChange }) => {
   const percent = ((value - min) / (max - min)) * 100;
   return (
     <div className="mb-6">
-      <label className="block text-sm font-medium text-black mb-2">{label}</label>
+      <label className="block text-sm font-medium text-white mb-2">{label}</label>
       <input
         type="range"
         min={min}
@@ -182,7 +182,7 @@ const Slider = ({ label, min, max, value, onChange }) => {
           background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${percent}%, #e5e7eb ${percent}%, #e5e7eb 100%)`,
         }}
       />
-      <div className="flex justify-between text-xs text-gray-900 mt-1">
+      <div className="flex justify-between text-xs text-white mt-1">
         <span>{min}</span>
         <span className="font-semibold">{value}</span>
         <span>{max}</span>
