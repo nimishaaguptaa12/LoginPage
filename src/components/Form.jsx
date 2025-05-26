@@ -103,7 +103,7 @@ const ImageUpload = () => {
           <>
             <Upload className="mx-auto text-gray-400 mb-2" size={36} />
             <p className="text-sm text-gray-500">Click to upload an image</p>
-            <small className="text-gray-400">PNG, JPG, JPEG (max 5MB)</small>
+            <small className="text-gray-400">PNG, JPG or JPEG (max 5MB)</small>
           </>
         )}
       </div>
@@ -228,7 +228,7 @@ const FormPage = () => {
       </nav>
 
       {/* Form container */}
-      <div className="w-full max-w-2xl bg-white/90 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden z-0 relative">
+      <div className="w-full max-w-2xl bg-violet/90 backdrop-blur-md rounded-xl shadow-2xl overflow-hidden z-0 relative">
         {/* Form header with gradient */}
         <div className="bg-gradient-to-r from-blue-600 to-blue-500 p-6 text-center">
           <h2 className="text-2xl font-bold text-white">Profile Information</h2>
