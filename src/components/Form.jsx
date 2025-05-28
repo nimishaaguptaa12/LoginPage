@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFormContext } from '../context/FormContext';
 import { ArrowRight, Upload, ChevronDown } from 'lucide-react';
 import backgroundImage from '../assets/premium_photo.jpg';
+import { submitUser } from '../api'; 
 
 // FormField component
 const FormField = ({ label, id, type = 'text', value, onChange, error, required, placeholder }) => {
@@ -198,9 +199,16 @@ const FormPage = () => {
 
   const ageCategories = ['Under 18', '18-25', '26-35', '36-45', '46-55', '56-65', '65+'];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) navigate('/results');
+    if (validateForm()) {
+      try {
+        await submitUser(formData);
+        navigate('/results');
+      } catch (error) {
+        console.error('Submission failed:', error);
+      }
+    }
   };
 
   return (
