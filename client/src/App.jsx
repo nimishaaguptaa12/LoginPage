@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { FormProvider } from './context/FormContext';
-import { FormPage } from './components/Form';
-import ResultsPage from './components/ResultsPage';
+import { FormProvider } from 'LoginPage\src\context\FormContext.jsx';
+import { FormPage } from 'LoginPage\src\components\Form.jsx';
+import ResultsPage from 'LoginPage\src\components\ResultsPage.jsx';
 
 function App() {
   return (

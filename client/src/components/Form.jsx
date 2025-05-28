@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFormContext } from '../context/FormContext';
+import { useFormContext } from 'LoginPage\src\context\FormContext.jsx';
 import { ArrowRight, Upload, ChevronDown } from 'lucide-react';
-import backgroundImage from '../assets/premium_photo.jpg';
+import backgroundImage from 'LoginPage\src\assets\premium_photo.jpg';
 import { submitUser } from '../api'; 
 
 // FormField component

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormContext } from '../context/FormContext';
 import { ArrowLeft } from 'lucide-react';
-import backgroundImage from '../assets/premium_photo.jpg';
+import backgroundImage from 'LoginPage\src\assets\premium_photo.jpg';
 
 const ResultsPage = () => {
   const navigate = useNavigate();
