@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 /node_modules 
 /client/node_modules 
 /server/node_modules 
 .env 
+=======
+node_modules/ 
+dist/ 
+>>>>>>> e4c3fbe (initial frontend+backend commit)
