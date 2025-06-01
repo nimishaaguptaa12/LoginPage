@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Navigate,
-} from 'react-router-dom';
+import {createBrowserRouter, RouterProvider, Navigate,} from 'react-router-dom';
 import { FormProvider } from './context/FormContext';
 import { FormPage } from './components/Form';
 import ResultsPage from './components/ResultsPage';

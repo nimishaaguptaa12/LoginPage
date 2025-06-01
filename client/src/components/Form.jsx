@@ -4,6 +4,7 @@ import { useFormContext } from '../context/FormContext';
 import { ArrowRight, Upload, ChevronDown } from 'lucide-react';
 import backgroundImage from '../assets/premium_photo.jpg';
 import { createUser } from './api';
+import axios from 'axios'; 
 
 // FormField component
 const FormField = ({ label, id, type = 'text', value, onChange, error, required, placeholder }) => {
@@ -204,14 +205,19 @@ const FormPage = () => {
   //   if (validateForm()) navigate('/results');
   // };
 
+
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateForm()) {
-    return;
-  }
+    e.preventDefault();
+    
+    // Keep your existing form validation
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
-  try {
-      // Create FormData for file upload
+    
+    try {
+      // Create FormData (keep your existing file upload logic)
       const formDataToSend = new FormData();
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
@@ -221,16 +227,33 @@ const FormPage = () => {
         formDataToSend.append('profilePicture', formData.image);
       }
 
-      const response = await createUser(formDataToSend);
+      // Axios POST request with FormData
+      const response = await axios.post('http://localhost:5000/api/user', formDataToSend, {
+        headers: {
+          'Content-Type': 'multipart/form-data' // Important for file uploads
+        },
+        // Optional: Add timeout and max file size handling
+        timeout: 10000, // 10 seconds timeout
+        maxContentLength: 5 * 1024 * 1024 // 5MB max
+      });
+
       console.log('User created:', response.data);
       navigate('/results');
+      
     } catch (error) {
       console.error('Error creating user:', error);
-      if (error.response?.status === 413) {
+      
+      // Enhanced error handling
+      if (error.code === 'ECONNABORTED') {
+        alert('Request timed out. Please try again.');
+      } else if (error.response?.status === 413) {
         alert('File size is too large. Please use a smaller image (max 5MB).');
+      } else if (error.response?.data?.error) {
+        alert(error.response.data.error);
       } else {
         alert('Failed to submit form. Please try again.');
       }
+      
     } finally {
       setIsSubmitting(false);
     }
